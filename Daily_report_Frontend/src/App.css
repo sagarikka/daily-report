@@ -1,0 +1,23 @@
+/* styles.css */
+
+/* Custom Swiper Pagination Styles */
+.swiper-pagination-bullet {
+  background-color: gray; /* Default color for all bullets */
+  width: 20px; /* Bullet size */
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 4px;
+  opacity: 1; /* Make sure they are fully opaque */
+  border-radius: 50%; /* Make bullets circular */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: blue; /* Color for active bullet */
+}
+.left{
+  align-items: end;
+}
+.right{
+  align-items: end;
+}
