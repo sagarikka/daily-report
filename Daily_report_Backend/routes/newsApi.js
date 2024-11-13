@@ -8,7 +8,7 @@ router.get("/timesofindia",async(req,res)=>{
     try {
         browser = await puppeteer.launch({headless:true});
         const page = await browser.newPage();
-        await page.goto(url, { waitUntil: 'domcontentloaded' },{timeout: 60000});
+        await page.goto(url, { waitUntil: 'domcontentloaded' ,timeout: 0});
 
         const result = await page.evaluate(() => {
             const headings = document.querySelectorAll(".WavNE");
@@ -34,7 +34,7 @@ router.get("/hindustantimes",async (req,res)=>{
     try{
         browser=await puppeteer.launch({headless:true});
         const page=await browser.newPage();
-        await page.goto(url,{waitUntil:'domcontentloaded'},{timeout: 60000});
+        await page.goto(url,{waitUntil:'domcontentloaded',timeout: 0});
         const result =await page.evaluate(()=>{
             const headings=document.querySelectorAll(".hdg3 a");
             const allHeadings=[...headings];
@@ -48,7 +48,7 @@ router.get("/hindustantimes",async (req,res)=>{
            await browser.close();
         }
         console.log(error);
-        return res.status(500).send("An error occur while scraping the hindustan times!")
+        return res.status(500).send({error:"An error occur while scraping the hindustan times!"})
     }
 })
 module.exports=router;

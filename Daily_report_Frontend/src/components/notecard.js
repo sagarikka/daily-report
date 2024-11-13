@@ -27,7 +27,7 @@ export default function NoteCard({id,isediting,noteText,onEdit, onDelete, onSave
     }
 
     return(
-        <div className="w-56 md:w-56 md:h-80 w-1/2 h-1/2 shadow-2xl bg-gray-500  overflow-y-auto  scroll-auto m-2 p-2" style={{boxShadow:"1px 1px 20px red"}}>
+        <div className="w-56 md:w-56 md:h-80 w-1/2 h-1/2 shadow-2xl bg-gray-500  overflow-y-auto  scroll-auto m-2 p-2" style={{boxShadow:"1px 1px 20px black"}}>
         <div className="border  border-gray-800 p-2 w-full h-full flex flex-col">
         {
             editing?

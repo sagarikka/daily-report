@@ -1,23 +1,428 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&display=swap');
+.article{
+  background: #d9e4eb;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.btn{
+  color:black;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px;
+  padding-inline: 8px;
+  border-radius: 0.3rem;
+  margin:2px;
+  background:white ;
+}
+.btn:hover{
+  background-color:rgb(201, 81, 81) ;
+}
+.btn.primary{
+  background:blue;
+}
+.btn.primary:hover{
+  background:rgb(3, 3, 123);
+}
+.btn.danger{
+  background:red;
+}
+.btn.danger:hover{
+  background:rgb(125, 4, 4);
+}
+/*======================= NAVBAR =======================*/
+.nav__logo img{
+  width: 40px;
+  border-radius: 0.3rem;
+  padding-top: 6px;
+}
+.nav__container{
+    display: flex;
+    line-height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    z-index: 1;
+    position: fixed;
+    background: var(255,255,255,0.5);
+    border-bottom: 4px solid rgb(225, 225, 225);
+    backdrop-filter: blur(20px);
+    padding: 0 20px;
+    left: 0;
+    right: 0;
+    
+    
+}
+.nav__toggle-btn{
+ display: none;
+}
+.nav__menu{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+@media only screen and (max-width:768px){
+  .nav__toggle-btn{
+    display: inline;
+  }
+  .nav__menu {
+    display: none; /* Hide the menu initially */
+    position: absolute;
+    top: 70px; /* Adjust based on your nav height */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 2px solid #e1e1e1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  .nav__menu.active {
+    display: flex; /* Show menu when active */
+  }
 
-/* Custom Swiper Pagination Styles */
-.swiper-pagination-bullet {
-  background-color: gray; /* Default color for all bullets */
-  width: 20px; /* Bullet size */
-  height: 20px;
+  .nav__toggle-btn {
+    display: block; /* Show toggle button */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 11;
+  }
+  .nav__container{
+    padding: 0.5rem;
+  }
+}
+
+/*======================= FOOTER =======================*/
+footer{
+  margin-top: 3rem;
+  padding-top: 3rem;
+}
+.footer__categories{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.footer__categories div{
+  transition:all 300ms ease;
+  background: #252542;
+  color: white;
+  padding: 0.6rem 1.4rem ;
+  border-radius:0.6rem ;
+}
+.footer__categories div:hover{
+  background: white;
+  color: #242323;
+}
+.footer__copyright{
   text-align: center;
-  font-weight: bold;
-  margin: 0 4px;
-  opacity: 1; /* Make sure they are fully opaque */
-  border-radius: 50%; /* Make bullets circular */
+  border-top: 2px solid #252542;
+  padding: 1rem;
+  color: white;
+  font-weight: 300;
 }
 
-.swiper-pagination-bullet-active {
-  background-color: blue; /* Color for active bullet */
+/*======================= POSTS =======================*/
+.postscard,.author__posts,.post-detail,.category__posts,.authors,.profile,.dashboard,.create-post{
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-inline: 15px;}
+.posts__container,.author__post-container,.category__posts-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+  margin: auto;
 }
-.left{
-  align-items: end;
+.post{
+  background-color:white ;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  padding-bottom: 2rem;
+  transition: all 300ms ease;
+  cursor: default;
+  height: 75vh;
 }
-.right{
-  align-items: end;
+.post:hover{
+  box-shadow: 0 1.5rem 2rem rgba(0,0,0,0.1);
+}
+.post__thumbnail{
+  border-radius: 0.3rem;
+  overflow: hidden;
+  height: 50%;
+}
+.post__thumbnail img{
+  height: 100%;
+  width: 100%;
+}
+.title{
+  font-weight: 700;
+  margin:1rem 0 0.6rem ;
+}
+.post__footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+.post__content{
+  height: 50%;
+}
+.post__author{
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.post__author-avatar{
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.btn.category{
+  background: #d9e4eb ;
+  color: blue;
+ 
+}
+.btn.category:hover{
+  background: brown ;
+  color: white;
+ 
+}
+@media only screen and (max-width: 650px) {
+  /* Styles for mobile devices */
+  .posts__container,.author__post-container,.category__posts-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: auto;
+    width: 85%;
+  }
+  .post__thumbnail{
+    height: 60%;
+  }
+}
+
+@media only screen and (min-width: 651px) and (max-width: 1024px) {
+  /* Styles for tablets */
+  .posts__container,.author__post-container,.category__posts-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+  margin: auto;
+  }
+}
+
+/*======================= POST DETAIL =======================*/
+
+.post-detail__container{
+  margin: 2px 0;
+}
+
+/*======================= POST DETAIL =======================*/
+.authors,.profile,.dashboard,.create-post{
+  min-height: 58vh;
+}
+.authors__container{
+  margin: auto;
+  max-width: 75%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+}
+.authors__card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.874);
+  padding: 6px  ;
+  border-radius: 18px;
+  
+}
+.authors-card__avatar img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  height: 50%;
+}
+@media only screen and (max-width:768px){
+  .authors__container {
+    margin: auto;
+    max-width: 75%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+}
+@media only screen and (min-width: 769px) and (max-width: 1020px) {
+  .authors__container {
+    margin: auto;
+    max-width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .authors,.profile,.dashboard{
+    min-height: 48vh;
+  }
+}
+/*======================= PROFILE =======================*/
+.profile__container{
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.profile__details{
+  width: 100%;
+}
+.avatar__wrapper img{
+  width: 12rem;
+  border-radius: 50%;
+}
+.avatar__wrapper{
+ width: 12rem;
+  aspect-ratio: 1/1;
+  position: relative;
+  margin-inline:auto ;
+ margin-top: 4px;
+}
+.profile__avatar{
+  height: 100%;
+  border-radius: 50%;
+  border: 1rem solid white;
+}
+.profile__avatar img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.avatar__form label,.profile__avatar-btn{
+  background-color: rgb(46, 44, 44);
+  color: white;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 2rem;
+  font-size:1.2rem;
+  bottom: 1.8rem;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.profile__avatar-btn{
+  cursor: pointer;
+  padding: 0;
+  background-color: blue;
+}
+.form.profile form{
+  margin-top: 3rem;
+}
+.profile__form input{
+  width: 17rem;
+  outline: none;
+  display: block;
+  margin:3px auto 4px;
+  padding: 2px;
+  border-radius: 10px;
+  border:solid 2px #242323;
+  font-weight: bold;
+}
+.profile__form input,.user-name{
+  font-family: "Edu AU VIC WA NT Dots", cursive;
+  font-weight: bolder;
+}
+.update__button{
+  display: block;
+  margin: auto;
+  background-color: blue;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.visible{
+  display: none;
+}
+.avatar__form{
+  height: 1rem;
+  
+}
+.upload-avatar{
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  z-index: 1;
+  opacity: 0; 
+}
+/*======================= DASHBOARD =======================*/
+.dashboard__container{
+  display:flex ;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.dashboard__post{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: white;
+  padding: 0.5rem 1.2rem;
+  border-radius:0.6rem ;
+}
+.dashboard__post-info{
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+.dashboard__post-thumbnail img{
+  width: 4rem;
+  border-radius: 0.2rem;
+}
+
+@media only screen and (max-width:768px){
+  .dashboard__post-thumbnail img{
+    width: 7rem;
+  }
+}
+
+/*  STYLE FOR REACT QUILL*/
+.ql-editor{
+  overflow: scroll;
+  background: white;
+  height: 10rem !important;
+}
+
+/*======================= DASHBOARD =======================*/
+.delete-modal{
+  background: rgba(255, 255, 255, 0.856);
+  width: 12rem;
+  position: absolute;
+  z-index: 1;
+  right: 40%;
+  bottom: 23rem;
+  padding: 0.5rem 1rem;
+  border:1px solid;
+  border-radius: 0.5rem;
+}
+.modal-message{
+  font-weight: 400;
+}
+:hover .delete-modal{
+  box-shadow:0 1.5rem 2rem rgba(0, 0, 0, 0.1) ;
+}
+.dashboard-opacity{
+  opacity: 30%;
 }

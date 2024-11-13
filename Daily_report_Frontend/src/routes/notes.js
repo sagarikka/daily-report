@@ -44,7 +44,7 @@ export default function Notes(){
     }
     
     return(
-        <div className="bg-gray-900 flex flex-wrap m-auto overflow-y-auto justify-center   items-center   text-white w-full h-full p-3">
+        <div className="bg-gray-900 flex flex-wrap m-auto overflow-y-auto justify-center   items-center   text-white w-screen h-screen p-3">
         {/*note card */}
         {
             notecard.map((note)=>{

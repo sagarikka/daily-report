@@ -12,6 +12,10 @@ const User=new Schema({
     password:{
        type:String,
        required:true,
+    },
+    profile:{
+      type:String,
+      required:false
     }
 });
 const UserModel=mongoose.model('user',User);
